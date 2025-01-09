@@ -25,7 +25,9 @@ public class TodoController {
         Todo todo = new Todo(totalTodos++, dto.title, dto.completed, dto.deadlineDate);
         this.todos.add(todo);
 
-        return ResponseEntity.created(URI.create("/todo")).build();
+        return ResponseEntity
+                .created(URI.create("/todo"))
+                .body(todo);
     }
 
     @GetMapping
